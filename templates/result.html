@@ -2,10 +2,55 @@
 <html>
 <head>
     <title>Prediction Result</title>
+    <style>
+        body {
+            background-color: #f0f8ff;
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .result {
+            font-size: 24px;
+            padding: 20px;
+            border-radius: 10px;
+            display: inline-block;
+            background-color: #e0ffe0; /* default: greenish background */
+        }
+
+        .bad {
+            background-color: #ffe0e0; /* redish background if bad */
+        }
+
+        .emoji {
+            font-size: 48px;
+        }
+
+        a {
+            display: block;
+            margin-top: 20px;
+            font-size: 16px;
+            text-decoration: none;
+            color: #007bff;
+        }
+    </style>
 </head>
 <body>
-    <h2>Prediction:</h2>
-    <p>{{ prediction }}</p>
-    <a href="/">Try Again</a>
+
+    <h2>Prediction Result</h2>
+
+    <div class="result {% if prediction == 'Less than or equal to 50K' %}bad{% endif %}">
+        <div class="emoji">
+            {% if prediction == 'Greater than 50K' %}
+                😊
+            {% else %}
+                😞
+            {% endif %}
+        </div>
+        <p>{{ prediction }}</p>
+    </div>
+
+    <a href="/">🔁 Try Again</a>
+
 </body>
 </html>

@@ -8,3 +8,6 @@ services:
     envVars:
       - key: PORT
         value: 10000
+git add render.yaml
+git commit -m "Add .render.yaml for deployment"
+git push
